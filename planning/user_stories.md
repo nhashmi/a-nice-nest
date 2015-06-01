@@ -9,7 +9,7 @@
 - once I sign in or sign up, I am taken to the rankings index page
 
 ## Signed in
-- I can add a ranking for each resident
+- I can add a ranking for each resident by clicking on the resident's name
 - on the rankings index page, I can see which rankings have not yet been completed (created_at and updated_at are the same)
 - on the rankings index page, I can click on links to edit or delete a ranking
 - on the rankings index page, I can click on a link to see a list of my saved addresses (candidates)
