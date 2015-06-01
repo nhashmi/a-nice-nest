@@ -2,7 +2,7 @@ module Api
 
   class ZillowSearcher
     def initialize(params)
-      @url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=" +
+      @url = "http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=" +
       ENV['zillow_id'] + "&address=" + params[:address] +
       "&citystatezip=" + params[:city] + "%2C%20" + params[:state] + "%20" +
       params[:zip] + "&rentzestimate=true"
@@ -20,15 +20,19 @@ module Api
     end
 
     def clean(response)
-      results = response["searchresults"]["response"]["results"]["result"]
-      binding.pry
+      results = response['searchresults']['response']['results']['result']
       cleaned_results = []
       results.each do |result|
         cleaned_result = {
-          :zpid => result["zpid"],
-          :rent => result["rentzestimate"]["amount"]["__content__"],
-          :links => result["links"],
-          :address => result["address"]
+          :zpid => result['zpid'],
+          :rent => result['rentzestimate']['amount']['__content__'],
+          :links => result['links'],
+          :address => result['address'],
+          :year_built => resul['yearBuilt'],
+          :sq_ft => ['finishedSqFt'],
+          :baths => ['bathrooms'],
+          :beds => ['bedrooms'],
+          :rooms => ['totalRooms']
         }
         cleaned_results << cleaned_result
       end

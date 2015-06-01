@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  # root 'pages#search'
+  root 'rankings#index'
 
   resources :users do
     resources :candidates
