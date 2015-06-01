@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'devise'
 gem 'httparty'
+gem 'high_voltage'
 
 group :development, :test do
   gem 'byebug'
