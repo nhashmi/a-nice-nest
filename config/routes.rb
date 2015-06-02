@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :candidates
-    resources :residents do
-      resources :rankings
-    end
+    resources :rankings
   end
 
   namespace :api do

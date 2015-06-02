@@ -1,12 +1,11 @@
 class Ranking < ActiveRecord::Base
-  belongs_to :resident
+  belongs_to :user
 
-  def self.load_residents_and_rankings(user)
+  def self.load_rankings(user)
     if user.rankings.all.length == 0
       total_residents = user.other_residents.to_i + 1
       total_residents.times do
-        new_resident = user.residents.create(name: 'A resident')
-        new_resident.rankings.create
+        user.rankings.create
       end
       @rankings = user.rankings.all
       return @rankings
@@ -22,6 +21,14 @@ class Ranking < ActiveRecord::Base
       return "last updated #{updated_at.time_ago_in_words}"
     else
       return "incomplete"
+    end
+  end
+
+  def welcome_message
+    if resident_name == "A resident"
+      return "What are you looking for in a home?"
+    else
+      return "#{resident_name}, what are you looking for in a home?"
     end
   end
 

@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 20150602155911) do
   end
 
   create_table "rankings", force: :cascade do |t|
-    t.integer  "resident_id"
+    t.integer  "user_id"
+    t.string   "resident_name",         default: "A resident"
     t.string   "public_transportation"
     t.string   "own_baths"
     t.string   "own_beds"
@@ -32,13 +33,6 @@ ActiveRecord::Schema.define(version: 20150602155911) do
     t.string   "size"
     t.string   "bike_friendly"
     t.string   "parking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "residents", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

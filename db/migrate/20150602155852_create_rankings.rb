@@ -1,7 +1,8 @@
 class CreateRankings < ActiveRecord::Migration
   def change
     create_table :rankings do |t|
-      t.belongs_to :resident
+      t.belongs_to :user
+      t.string :resident_name, default: "A resident"
       t.string :public_transportation
       t.string :own_baths
       t.string :own_beds

@@ -1,11 +1,12 @@
 <h1>Your rankings</h1>
 <ul class="residents">
-  <% current_user.rankings.each do |ranking| %>
+  <% @rankings.each do |ranking| %>
     <li>
-      <%= link_to "#{ranking.resident.name}'s ranking - #{ranking.update_message}",
-      edit_user_resident_ranking_path(current_user, ranking, resident_id: ranking.resident_id)%>
+      <%= link_to "#{ranking.resident_name}'s ranking -
+      #{ranking.update_message}",edit_user_ranking_path(current_user, ranking)%>
     </li>
-    <small class="delete-ranking"><%= link_to "Remove resident", user_resident_path(ranking.resident, current_user), method: :delete %></small>
+    <small class="delete-ranking"><%= link_to "Remove resident",
+      user_ranking_path(current_user, ranking), method: :delete %></small>
   <% end %>
 </ul>
 

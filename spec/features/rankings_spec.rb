@@ -42,6 +42,7 @@ describe 'viewing the rankings index' do
     num_old_residents = page.all('.residents li').length
     click_on('Remove resident', match: :first)
     num_residents = page.all('.residents li').length
+    binding.pry
     expect(num_residents).to eql(num_old_residents - 1)
   end
 

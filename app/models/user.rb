@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :residents
-  has_many :rankings, :through => :residents
+  has_many :rankings
   has_many :candidates
 end
