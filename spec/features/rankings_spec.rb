@@ -42,13 +42,19 @@ describe 'viewing the rankings index' do
     num_old_residents = page.all('.residents li').length
     click_on('Remove resident', match: :first)
     num_residents = page.all('.residents li').length
-    binding.pry
     expect(num_residents).to eql(num_old_residents - 1)
   end
 
-  it 'links to the candidates#index'
+  it 'links to the candidates#index' do
+    click_on('Your saved addresses')
+    expect(page).to have_content('Here are the addresses you\'re interested in
+      ranking')
+  end
 
-  it 'displays a link to search for a new address'
+  it 'displays a link to search for a new address' do
+    click_on('Search for an address')
+    expect(page).to have_content('Search for an address')
+  end
 
 end
 

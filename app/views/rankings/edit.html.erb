@@ -10,42 +10,42 @@
   <div class="form-field">
     <%= f.label :public_transportation, "Proximity to public_transportation" %>
     <% @ranking_options.each do |option| %>
-      <%= radio_button_tag(:public_transportation, option) %>
+      <%= f.radio_button(:public_transportation, option) %>
       <%= label_tag(:public_transportation, option) %>
     <% end %>
   </div>
   <div class="form-field">
     <%= f.label :bike_friendly, "Bike friendliness" %>
       <% @ranking_options.each do |option| %>
-        <%= radio_button_tag(:bike_friendly, option) %>
+        <%= f.radio_button(:bike_friendly, option) %>
         <%= label_tag(:bike_friendly, option) %>
       <% end %>
   </div>
   <div class="form-field">
     <%= f.label :parking, "Easy parking" %>
       <% @ranking_options.each do |option| %>
-        <%= radio_button_tag(:parking, option) %>
+        <%= f.radio_button(:parking, option) %>
         <%= label_tag(:parking, option) %>
       <% end %>
   </div>
   <div class="form-field">
     <%= f.label :own_baths, "Individual bathrooms for each person" %>
       <% @ranking_options.each do |option| %>
-        <%= radio_button_tag(:own_baths, option) %>
+        <%= f.radio_button(:own_baths, option) %>
         <%= label_tag(:own_baths, option) %>
       <% end %>
   </div>
   <div class="form-field">
     <%= f.label :own_beds, "Individual bedrooms for each person" %>
       <% @ranking_options.each do |option| %>
-        <%= radio_button_tag(:own_beds, option) %>
+        <%= f.radio_button(:own_beds, option) %>
         <%= label_tag(:own_beds, option) %>
       <% end %>
   </div>
   <div class="form-field">
     <%= f.label :size, "A lot of space" %>
       <% @ranking_options.each do |option| %>
-        <%= radio_button_tag(:size, option) %>
+        <%= f.radio_button(:size, option) %>
         <%= label_tag(:size, option) %>
       <% end %>
   </div>

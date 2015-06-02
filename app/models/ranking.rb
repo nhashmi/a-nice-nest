@@ -18,11 +18,12 @@ class Ranking < ActiveRecord::Base
 
   def update_message
     if ever_updated?
-      return "last updated #{updated_at.time_ago_in_words}"
+      return "Last updated at"
     else
-      return "incomplete"
+      return "Incomplete"
     end
   end
+
 
   def welcome_message
     if resident_name == "A resident"

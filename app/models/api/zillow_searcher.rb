@@ -24,15 +24,15 @@ module Api
       cleaned_results = []
       results.each do |result|
         cleaned_result = {
-          :zpid => result['zpid'],
-          :rent => result['rentzestimate']['amount']['__content__'],
-          :links => result['links'],
-          :address => result['address'],
-          :year_built => result['yearBuilt'],
-          :sq_ft => result['finishedSqFt'],
-          :baths => result['bathrooms'],
-          :beds => result['bedrooms'],
-          :rooms => result['totalRooms']
+          :zpid => results['zpid'],
+          :rent => results['rentzestimate']['amount']['__content__'],
+          :links => results['links'],
+          :address => results['address'],
+          :year_built => results['yearBuilt'],
+          :sq_ft => results['finishedSqFt'],
+          :baths => results['bathrooms'],
+          :beds => results['bedrooms'],
+          :rooms => results['totalRooms']
         }
         cleaned_results << cleaned_result
       end

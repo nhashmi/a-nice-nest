@@ -1,12 +1,17 @@
-<h1>Your rankings</h1>
+<h2>Your rankings</h2>
 <ul class="residents">
   <% @rankings.each do |ranking| %>
     <li>
-      <%= link_to "#{ranking.resident_name}'s ranking -
-      #{ranking.update_message}",edit_user_ranking_path(current_user, ranking)%>
+      <%= link_to "#{ranking.resident_name}'s ranking",
+          edit_user_ranking_path(current_user, ranking) %>
+      <% if ranking.ever_updated? %>
+        - last updated <%= time_ago_in_words(ranking.updated_at) %> ago
+      <% end %>
     </li>
     <small class="delete-ranking"><%= link_to "Remove resident",
       user_ranking_path(current_user, ranking), method: :delete %></small>
   <% end %>
 </ul>
+<h3><%= link_to "Search for an address", page_path(:search) %></h3>
+<h3><%= link_to "Your saved addresses", user_candidates_path(current_user) %></h3>
 

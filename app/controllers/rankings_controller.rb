@@ -21,6 +21,11 @@ class RankingsController < ApplicationController
   end
 
   def update
+    if @ranking.update(ranking_params)
+      redirect_to user_rankings_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -34,8 +39,11 @@ class RankingsController < ApplicationController
     @ranking = current_user.rankings.find(params[:id])
   end
 
-  def address_params
-    params.require(:ranking).permit(:resident_name,:public_transportation, :own_baths, :own_beds, :max_rent, :size, :bike_friendly, :parking)
+  def ranking_params
+    params.require(:ranking).permit(
+      :resident_name, :public_transportation, :own_baths, :own_beds, :max_rent,
+      :size, :bike_friendly, :parking
+    )
   end
 
 end
