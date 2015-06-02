@@ -29,7 +29,20 @@ describe 'viewing the rankings index' do
   end
 
   it 'displays a link to delete a ranking' do
-    ranking_links = page.all('')
+    ranking_links = page.all('.delete-ranking')
+    expect(ranking_links.length).to eql(@total_residents)
+  end
+
+  it 'takes the user to the edit ranking page when the user clicks on a resident' do
+    click_on('A resident\'s ranking - incomplete', match: :first)
+    expect(page).to have_content('What is the most you\'re willing to pay each month?')
+  end
+
+  it 'renders the rankings#index page with one fewer resident when removing a resident' do
+    num_old_residents = page.all('.residents li').length
+    click_on('Remove resident', match: :first)
+    num_residents = page.all('.residents li').length
+    expect(num_residents).to eql(num_old_residents - 1)
   end
 
   it 'links to the candidates#index'

@@ -5,7 +5,7 @@
       <%= link_to "#{ranking.resident.name}'s ranking - #{ranking.update_message}",
       edit_user_resident_ranking_path(current_user, ranking, resident_id: ranking.resident_id)%>
     </li>
-    <small class="delete-ranking"><%= link_to "Remove resident", user_resident_path(ranking.resident, current_user), method: :destroy %></small>
+    <small class="delete-ranking"><%= link_to "Remove resident", user_resident_path(ranking.resident, current_user), method: :delete %></small>
   <% end %>
 </ul>
 
