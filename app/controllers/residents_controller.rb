@@ -1,8 +1,8 @@
-class CandidatesController < ApplicationController
+class ResidentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @candidates = current_user.candidates.all
+    @residents = current_user.residents.all
   end
 
   def show

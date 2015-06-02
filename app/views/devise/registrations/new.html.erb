@@ -21,6 +21,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :other_residents, 'How many other people will be living with you?' %>
+    <%= f.number_field :other_residents, in: 0..10 %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

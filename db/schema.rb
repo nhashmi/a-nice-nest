@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601194017) do
+ActiveRecord::Schema.define(version: 20150602155911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidates", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "zpid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.integer  "resident_id"
+    t.string   "public_transportation"
+    t.string   "own_baths"
+    t.string   "own_beds"
+    t.integer  "max_rent"
+    t.string   "size"
+    t.string   "bike_friendly"
+    t.string   "parking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "residents", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150601194017) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "other_residents",                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

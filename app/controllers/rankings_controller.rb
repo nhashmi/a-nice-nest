@@ -1,8 +1,9 @@
-class CandidatesController < ApplicationController
+class RankingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @candidates = current_user.candidates.all
+    Ranking.load_residents_and_rankings(current_user)
+    @residents = current_user.residents
   end
 
   def show
@@ -22,5 +23,4 @@ class CandidatesController < ApplicationController
 
   def destroy
   end
-
 end

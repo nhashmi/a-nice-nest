@@ -28,11 +28,11 @@ module Api
           :rent => result['rentzestimate']['amount']['__content__'],
           :links => result['links'],
           :address => result['address'],
-          :year_built => resul['yearBuilt'],
-          :sq_ft => ['finishedSqFt'],
-          :baths => ['bathrooms'],
-          :beds => ['bedrooms'],
-          :rooms => ['totalRooms']
+          :year_built => result['yearBuilt'],
+          :sq_ft => result['finishedSqFt'],
+          :baths => result['bathrooms'],
+          :beds => result['bedrooms'],
+          :rooms => result['totalRooms']
         }
         cleaned_results << cleaned_result
       end
