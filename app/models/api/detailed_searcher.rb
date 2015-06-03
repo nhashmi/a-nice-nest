@@ -23,6 +23,7 @@ module Api
         return error_message
       else
         cleaned_results = response['updatedPropertyDetails']['response']
+        cleaned_results['rent'] = @search_params[:rent]
         return cleaned_results
       end
     end

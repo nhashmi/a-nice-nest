@@ -1,4 +1,5 @@
 <h2>Here's what we were able to turn up</h2>
+<% @user = current_user %>
 <ul class="search-results">
   <% @results.each do |result| %>
     <li>
@@ -7,7 +8,8 @@
       Bedrooms: <%= result[:beds] %>
       Bathrooms: <%= result[:bathrooms] %>
       <%= link_to "View on Zillow", result[:links]["homedetails"] %>
-      <%= link_to "More details", detailed_search_api_zillow_index_path(:zpid => result[:zpid]), method: :post %>
+      <%= link_to "More details", detailed_search_api_zillow_index_path(
+          :zpid => result[:zpid], :rent => result[:rent]), method: :post %>
     </li>
   <% end %>
 </ul>

@@ -4,6 +4,7 @@
   <h4><%= link_to "Photos", @detailed_results['links']['photoGallery'] %></h4>
   <div class="home-details">
     <ul>
+      <li>Rent: <%= number_to_currency(params[:rent].to_i) %></li>
       <li>Bedrooms: <%= @detailed_results['editedFacts']['bedrooms'] %> </li>
       <li>Bathrooms: <%= @detailed_results['editedFacts']['bathrooms'] %> </li>
       <li>Finished sq. ft.: <%= @detailed_results['editedFacts']['finishedSqFt'] %> </li>
@@ -12,7 +13,17 @@
     </ul>
   </div>
   <p class="home-description"><%= @detailed_results['homeDescription'] %></p>
+  <h4>
+  <%= link_to "Save this address", user_candidates_path(current_user,
+        :zpid => @detailed_results['zpid'],
+        :beds => @detailed_results['editedFacts']['bedrooms'],
+        :baths => @detailed_results['editedFacts']['bathrooms'],
+        :size => @detailed_results['editedFacts']['finishedSqFt'],
+        :total_rent => params[:rent],
+        :notes => "Realtor's notes: #{@detailed_results['homeDescription']}",
+      ), method: :post %>
+</h4>
 <% else %>
   <p class="error-message"><%= @detailed_results%></p>
 <% end %>
-<%= binding.pry %>
+

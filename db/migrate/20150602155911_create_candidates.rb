@@ -3,7 +3,14 @@ class CreateCandidates < ActiveRecord::Migration
     create_table :candidates do |t|
       t.belongs_to :user
       t.string :zpid
-      t.text :notes, default: ""
+      t.string :baths
+      t.string :beds
+      t.string :size
+      t.string :total_rent
+      t.text :notes, default: ''
+      t.string :public_transportation, default: 'none'
+      t.string :bike_friendly, default: 'none'
+      t.string :parking, default: 'none'
       t.timestamps
     end
   end

@@ -7,7 +7,6 @@ module Api
       "&citystatezip=" + params[:city] + "%2C%20" + params[:state] + "%20" +
       params[:zip] + "&rentzestimate=true"
       @search_params = params
-      # ...
     end
 
     def perform

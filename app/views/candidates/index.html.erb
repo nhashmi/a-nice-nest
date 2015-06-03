@@ -4,10 +4,11 @@
     <li>
       <%= link_to "Zillow Property ID: #{candidate.zpid} ",
           user_candidate_path(current_user, candidate) %>
-      added <%= time_ago_in_words(ranking.created_at) %> ago
+      added <%= time_ago_in_words(candidate.created_at) %> ago
     </li>
     <small class="delete-candidate"><%= link_to "Remove property",
       user_candidate_path(current_user, candidate), method: :delete %></small>
   <% end %>
-<h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>
 </ul>
+<h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>
+<button><%= link_to "Rank these addresses", rank_user_candidates_path(current_user) %></button>

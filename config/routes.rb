@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'rankings#index'
 
   resources :users do
-    resources :candidates
+    resources :candidates do
+      get 'rank', on: :collection
+    end
     resources :rankings
   end
 

@@ -13,6 +13,17 @@ class CandidatesController < ApplicationController
   end
 
   def create
+    @candidate = current_user.candidates.new(
+      zpid: params[:zpid], notes: params[:notes], baths: params[:baths],
+      beds: params[:beds], size: params[:size], total_rent: params[:total_rent],
+      public_transportation: params[:public_transportation],
+      bike_friendly: params[:bike_friendly], parking: params[:parking]
+    )
+    if @candidate.save
+      redirect_to user_candidates_path(current_user)
+    else
+      redirect_to user_rankings_path(current_user)
+    end
   end
 
   def edit
@@ -31,6 +42,10 @@ class CandidatesController < ApplicationController
     redirect_to user_candidates_path
   end
 
+  def rank
+    @ranked_candidates = Candidate.rank(current_user) # returns hash
+  end
+
   private
 
   def find_candidate
@@ -38,8 +53,9 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:zpid, :notes)
+    params.require(:candidate).permit(
+      :zpid, :notes, :baths, :beds, :size, :total_rent, :public_transportation,
+      :bike_friendly, :parking)
   end
-
 end
 

@@ -33,4 +33,14 @@ class Ranking < ActiveRecord::Base
     end
   end
 
+  def evaluate(attribute)
+    if attribute == 'nice-to-have'
+      return 3
+    elsif attribute == 'must-have'
+      return 5
+    else
+      return 1
+    end
+  end
+
 end

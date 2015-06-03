@@ -1,5 +1,6 @@
 module Api
   class ZillowController < ApiController
+    skip_before_filter :verify_authenticity_token
     def search
       @results = ZillowSearcher.new(params).perform
       respond_to do |format|
