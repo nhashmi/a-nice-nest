@@ -1,14 +1,17 @@
+<div class="container">
 <h2>Here are the addresses you're interested in ranking.</h2>
-<ul class="candidates">
-  <% @candidates.each do |candidate| %>
-    <li>
-      <%= link_to "Zillow Property ID: #{candidate.zpid} ",
-          user_candidate_path(current_user, candidate) %>
-      added <%= time_ago_in_words(candidate.created_at) %> ago
-    </li>
-    <small class="delete-candidate"><%= link_to "Remove property",
-      user_candidate_path(current_user, candidate), method: :delete %></small>
-  <% end %>
-</ul>
-<h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>
-<button><%= link_to "Rank these addresses", rank_user_candidates_path(current_user) %></button>
+  <ul class="candidates list-group">
+    <% @candidates.each do |candidate| %>
+      <li class="list-group-item">
+        <span class="badge"><%= number_to_currency(candidate.total_rent.to_i, precision: 0) %></span>
+        <%= link_to candidate.street,
+            user_candidate_path(current_user, candidate) %>
+        <span class='when-added'>added <%= time_ago_in_words(candidate.created_at) %> ago</span>
+      </li>
+      <small class="delete-candidate"><%= link_to "Remove property",
+        user_candidate_path(current_user, candidate), method: :delete %></small>
+    <% end %>
+  </ul>
+  <h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>
+  <button class="btn btn-lg btn-success"><%= link_to "Rank these addresses", rank_user_candidates_path(current_user) %></button>
+</div>

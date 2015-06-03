@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * removed require_tree .
+ * removed require_self
+ * use @import instead
+ */
+
+$teal: #068d9d;
+$purple: #53599a;
+$blue: #6d9dc5;
+$green: #7ff8b9;
+$skyblue: #aeecef;
+
+$brand-primary: darken($blue, 20%);
+$body-bg: #fdfdfd;
+$jumbotron-bg: $blue;
+$jumbotron-color: #fff;
+$well-bg: $green;
+$font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.btn {
+  margin-top: 10px;
+}
+
+.navbar-right {
+  padding: 1vw 2vw;
+}
+
+.navbar {
+  font-family: 'Cherry Cream Soda', cursive;
+}
+
+.container {
+    h1,
+    h2 {
+      font-family: 'Cherry Cream Soda', cursive;
+    }
+}
+
+.alert-info {
+  padding-left: 2vw;
+}
+
+.when-added {
+  color: #555;
+}
+
+.btn-success {
+  a {
+    color: #fff;
+
+    &:hover {
+     color: #fff;
+     }
+  }
+
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

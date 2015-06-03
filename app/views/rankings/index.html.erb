@@ -1,17 +1,20 @@
-<h2>Your rankings</h2>
-<ul class="residents">
-  <% @rankings.each do |ranking| %>
-    <li>
-      <%= link_to "#{ranking.resident_name}'s ranking",
-          edit_user_ranking_path(current_user, ranking) %>
-      <% if ranking.ever_updated? %>
-        - last updated <%= time_ago_in_words(ranking.updated_at) %> ago
+<div class="container">
+  <h2>Your rankings</h2>
+    <ul class="residents">
+      <% @rankings.each do |ranking| %>
+        <li>
+          <h3>
+          <%= link_to "#{ranking.resident_name}'s ranking",
+              edit_user_ranking_path(current_user, ranking) %>
+          <% if ranking.ever_updated? %>
+          <span class='label label-default'><%= time_ago_in_words(ranking.updated_at) %> old</span>
+          <% end %>
+          </h3>
+        </li>
+        <small class="delete-ranking"><%= link_to "Remove resident",
+          user_ranking_path(current_user, ranking), method: :delete %></small>
       <% end %>
-    </li>
-    <small class="delete-ranking"><%= link_to "Remove resident",
-      user_ranking_path(current_user, ranking), method: :delete %></small>
-  <% end %>
-</ul>
-<h3><%= link_to "Search for an address", page_path(:search, :current_user => current_user) %></h3>
-<h3><%= link_to "Your saved addresses", user_candidates_path(current_user) %></h3>
-
+    </ul>
+    <h3><%= link_to "Search for an address", page_path(:search, :current_user => current_user) %></h3>
+    <h3><%= link_to "Your saved addresses", user_candidates_path(current_user) %></h3>
+</div>

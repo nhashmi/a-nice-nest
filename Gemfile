@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'devise'
 gem 'httparty'
 gem 'high_voltage'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 group :development, :test do
   gem 'byebug'

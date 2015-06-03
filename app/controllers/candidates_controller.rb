@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_candidate, only: [:show, :edit, :update, :destroy]
+  layout 'user'
 
   def index
     @candidates = current_user.candidates.all
