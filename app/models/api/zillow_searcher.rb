@@ -22,21 +22,42 @@ module Api
     def clean(response)
       results = response['searchresults']['response']['results']['result']
       cleaned_results = []
-      results.each do |result|
-        cleaned_result = {
-          :zpid => results['zpid'],
-          :rent => results['rentzestimate']['amount']['__content__'],
-          :links => results['links'],
-          :address => results['address'],
-          :year_built => results['yearBuilt'],
-          :sq_ft => results['finishedSqFt'],
-          :baths => results['bathrooms'],
-          :beds => results['bedrooms'],
-          :rooms => results['totalRooms']
-        }
-        cleaned_results << cleaned_result
+      # Handle cases where search returns multiple properties at the same address
+      if results.kind_of?(Array)
+        results.each do |result|
+          cleaned_result = {
+            :zpid => result['zpid'],
+            :rent => result['rentzestimate']['amount']['__content__'],
+            :links => result['links'],
+            :address => result['address'],
+            :year_built => result['yearBuilt'],
+            :sq_ft => result['finishedSqFt'],
+            :baths => result['bathrooms'],
+            :beds => result['bedrooms'],
+            :rooms => result['totalRooms']
+          }
+          cleaned_results << cleaned_result
+        end
+        return cleaned_results
+      else
+        # Handle cases where search returns one property
+        results.each do |result|
+          cleaned_result = {
+            :zpid => results['zpid'],
+            :rent => results['rentzestimate']['amount']['__content__'],
+            :links => results['links'],
+            :address => results['address'],
+            :year_built => results['yearBuilt'],
+            :sq_ft => results['finishedSqFt'],
+            :baths => results['bathrooms'],
+            :beds => results['bedrooms'],
+            :rooms => results['totalRooms']
+          }
+          # API occasionally returns duplicate results, so we only return one
+          cleaned_results[0] = cleaned_result
+        end
+        return cleaned_results
       end
-      return cleaned_results
     end
   end
 end

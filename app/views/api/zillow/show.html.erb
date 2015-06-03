@@ -1,0 +1,18 @@
+<h2>More detailed results</h2>
+<% if @detailed_results['editedFacts'] %>
+  <h3><%= @detailed_results['address']['street'] %></h3>
+  <h4><%= link_to "Photos", @detailed_results['links']['photoGallery'] %></h4>
+  <div class="home-details">
+    <ul>
+      <li>Bedrooms: <%= @detailed_results['editedFacts']['bedrooms'] %> </li>
+      <li>Bathrooms: <%= @detailed_results['editedFacts']['bathrooms'] %> </li>
+      <li>Finished sq. ft.: <%= @detailed_results['editedFacts']['finishedSqFt'] %> </li>
+      <li>Age: <%= time_ago_in_words(Time.new(@detailed_results['editedFacts']['yearBuilt'].to_i)) %> old</li>
+      <li>Parking: <%= @detailed_results['editedFacts']['parkingType'] %> </li>
+    </ul>
+  </div>
+  <p class="home-description"><%= @detailed_results['homeDescription'] %></p>
+<% else %>
+  <p class="error-message"><%= @detailed_results%></p>
+<% end %>
+<%= binding.pry %>

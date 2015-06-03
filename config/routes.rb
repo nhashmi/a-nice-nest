@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :zillow do
       post 'search', on: :collection
+      post 'detailed_search', on: :collection
     end
   end
 end
