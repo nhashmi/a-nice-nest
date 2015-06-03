@@ -1,54 +1,68 @@
-<h2><%= @ranking.welcome_message %></h2>
-<%= form_for [current_user, @ranking] do |f| %>
-  <div class="form-field">
-    <%= f.label :resident_name, "Resident's name" %>
-    <%= f.text_field :resident_name %>
-  </div>
-  <div class="form-field">
-    <%= f.label :max_rent, "What is the most you're willing to pay each month?" %>
-    <%= f.number_field :max_rent %>
-  </div>
-  <div class="form-field">
-    <%= f.label :public_transportation, "Proximity to public_transportation" %>
-    <% @ranking_options.each do |option| %>
-      <%= f.radio_button(:public_transportation, option) %>
-      <%= label_tag(:public_transportation, option) %>
-    <% end %>
-  </div>
-  <div class="form-field">
-    <%= f.label :bike_friendly, "Bike friendliness" %>
+<div class="container edit-form">
+  <h2><%= @ranking.welcome_message %></h2>
+  <%= form_for [current_user, @ranking] do |f| %>
+    <div class="form-field form-group">
+      <h3><%= f.label :resident_name, "Resident's name" %></h3>
+      <%= f.text_field :resident_name, class: 'form-control' %>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :max_rent, "What is the most you're willing to pay each month?" %></h3>
+      <%= f.number_field :max_rent, class: 'form-control' %>
+    </div>
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :public_transportation, "Proximity to public transportation" %></h3>
       <% @ranking_options.each do |option| %>
-        <%= f.radio_button(:bike_friendly, option) %>
-        <%= label_tag(:bike_friendly, option) %>
+        <div class="radio">
+          <%= f.radio_button(:public_transportation, option) %>
+          <%= label_tag(:public_transportation, option) %>
+        </div>
       <% end %>
-  </div>
-  <div class="form-field">
-    <%= f.label :parking, "Easy parking" %>
-      <% @ranking_options.each do |option| %>
-        <%= f.radio_button(:parking, option) %>
-        <%= label_tag(:parking, option) %>
-      <% end %>
-  </div>
-  <div class="form-field">
-    <%= f.label :own_baths, "Individual bathrooms for each person" %>
-      <% @ranking_options.each do |option| %>
-        <%= f.radio_button(:own_baths, option) %>
-        <%= label_tag(:own_baths, option) %>
-      <% end %>
-  </div>
-  <div class="form-field">
-    <%= f.label :own_beds, "Individual bedrooms for each person" %>
-      <% @ranking_options.each do |option| %>
-        <%= f.radio_button(:own_beds, option) %>
-        <%= label_tag(:own_beds, option) %>
-      <% end %>
-  </div>
-  <div class="form-field">
-    <%= f.label :size, "A lot of space" %>
-      <% @ranking_options.each do |option| %>
-        <%= f.radio_button(:size, option) %>
-        <%= label_tag(:size, option) %>
-      <% end %>
-  </div>
-  <%= f.submit "Save rankings" %>
-<% end %>
+    <!-- </div> -->
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :bike_friendly, "Bike friendliness" %></h3>
+        <% @ranking_options.each do |option| %>
+          <div class="radio">
+            <%= f.radio_button(:bike_friendly, option) %>
+            <%= label_tag(:bike_friendly, option) %>
+          </div>
+        <% end %>
+    <!-- </div> -->
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :parking, "Easy parking" %></h3>
+        <% @ranking_options.each do |option| %>
+          <div class="radio">
+            <%= f.radio_button(:parking, option) %>
+            <%= label_tag(:parking, option) %>
+          </div>
+        <% end %>
+    <!-- </div> -->
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :own_baths, "Individual bathrooms for each person" %></h3>
+        <% @ranking_options.each do |option| %>
+          <div class="radio">
+            <%= f.radio_button(:own_baths, option) %>
+            <%= label_tag(:own_baths, option) %>
+          </div>
+        <% end %>
+    <!-- </div> -->
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :own_beds, "Individual bedrooms for each person" %></h3>
+        <% @ranking_options.each do |option| %>
+          <div class="radio">
+            <%= f.radio_button(:own_beds, option) %>
+            <%= label_tag(:own_beds, option) %>
+          </div>
+        <% end %>
+    <!-- </div> -->
+    <!-- <div class="form-field form-group"> -->
+      <h3><%= f.label :size, "A lot of space" %></h3>
+        <% @ranking_options.each do |option| %>
+          <div class="radio">
+            <%= f.radio_button(:size, option) %>
+            <%= label_tag(:size, option) %>
+          </div>
+        <% end %>
+    <!-- </div> -->
+    <%= f.submit "Save rankings", class: 'btn btn-lg btn-success' %>
+  <% end %>
+</div>

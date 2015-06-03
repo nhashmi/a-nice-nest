@@ -15,6 +15,8 @@
  * use @import instead
  */
 
+// Edits to Bootstrap defaults
+
 $teal: #068d9d;
 $purple: #53599a;
 $blue: #6d9dc5;
@@ -66,5 +68,19 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 
 }
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// Layout
+
+.radio {
+  input[type="radio"] {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+.edit-form {
+  padding-bottom: 10vh;
+}
