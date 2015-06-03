@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150602155911) do
   create_table "candidates", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "zpid"
+    t.string   "street"
     t.string   "baths"
     t.string   "beds"
     t.string   "size"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150602155911) do
     t.string   "public_transportation", default: "none"
     t.string   "bike_friendly",         default: "none"
     t.string   "parking",               default: "none"
+    t.integer  "score",                 default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

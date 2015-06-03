@@ -16,6 +16,7 @@
   <h4>
   <%= link_to "Save this address", user_candidates_path(current_user,
         :zpid => @detailed_results['zpid'],
+        :street => @detailed_results['address']['street'],
         :beds => @detailed_results['editedFacts']['bedrooms'],
         :baths => @detailed_results['editedFacts']['bathrooms'],
         :size => @detailed_results['editedFacts']['finishedSqFt'],

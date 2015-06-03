@@ -3,6 +3,7 @@ class CreateCandidates < ActiveRecord::Migration
     create_table :candidates do |t|
       t.belongs_to :user
       t.string :zpid
+      t.string :street
       t.string :baths
       t.string :beds
       t.string :size
@@ -11,6 +12,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :public_transportation, default: 'none'
       t.string :bike_friendly, default: 'none'
       t.string :parking, default: 'none'
+      t.integer :score, default: 0
       t.timestamps
     end
   end
