@@ -1,11 +1,15 @@
 class RankingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :find_ranking, only: [:show, :edit, :update, :destroy]
   layout 'user'
 
   def index
-    Ranking.load_rankings(current_user)
-    @rankings = current_user.rankings
+    if user_signed_in?
+      Ranking.load_rankings(current_user)
+      @rankings = current_user.rankings
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   def show
