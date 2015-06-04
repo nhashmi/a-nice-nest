@@ -11,8 +11,8 @@ matches up with the household's preferences.
 
 ## Next steps
 
-I'm unsure whether I will continue developing this app because it relies very
-heavily on a single API. To my chagrin, many realtors have chosen not to share
+I'm unsure whether I will continue developing this app because it relies too
+heavily on a single API. Many realtors have chosen not to share
 detailed information about their listings through the API, which makes using
 the app somewhat frustrating. Furthermore, the API's search features are quite
 limited so a user must search for an address that matches an address on Zillow
