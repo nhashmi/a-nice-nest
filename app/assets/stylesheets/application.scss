@@ -84,3 +84,26 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 .edit-form {
   padding-bottom: 10vh;
 }
+
+// Custom styles, post-Boostrap
+
+.home-description {
+  font-size: 18px;
+}
+
+.realtor {
+  font-family: $font-family-sans-serif;
+  font-size: 24px;
+}
+
+.details-container {
+  padding-bottom: 20vh;
+}
+
+.home-details-label {
+  font-weight: 700;
+}
+
+.home-details {
+  font-size: 1.5em;
+}

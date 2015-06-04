@@ -1,30 +1,38 @@
-<h2>More detailed results</h2>
-<% if @detailed_results['editedFacts'] %>
-  <h3><%= @detailed_results['address']['street'] %></h3>
-  <h4><%= link_to "Photos", @detailed_results['links']['photoGallery'] %></h4>
-  <div class="home-details">
-    <ul>
-      <li>Rent: <%= number_to_currency(params[:rent].to_i) %></li>
-      <li>Bedrooms: <%= @detailed_results['editedFacts']['bedrooms'] %> </li>
-      <li>Bathrooms: <%= @detailed_results['editedFacts']['bathrooms'] %> </li>
-      <li>Finished sq. ft.: <%= @detailed_results['editedFacts']['finishedSqFt'] %> </li>
-      <li>Age: <%= time_ago_in_words(Time.new(@detailed_results['editedFacts']['yearBuilt'].to_i)) %> old</li>
-      <li>Parking: <%= @detailed_results['editedFacts']['parkingType'] %> </li>
-    </ul>
-  </div>
-  <p class="home-description"><%= @detailed_results['homeDescription'] %></p>
-  <h4>
-  <%= link_to "Save this address", user_candidates_path(current_user,
-        :zpid => @detailed_results['zpid'],
-        :street => @detailed_results['address']['street'],
-        :beds => @detailed_results['editedFacts']['bedrooms'],
-        :baths => @detailed_results['editedFacts']['bathrooms'],
-        :size => @detailed_results['editedFacts']['finishedSqFt'],
-        :total_rent => params[:rent],
-        :notes => "Realtor's notes: #{@detailed_results['homeDescription']}",
-      ), method: :post %>
-</h4>
-<% else %>
-  <p class="error-message"><%= @detailed_results%></p>
-<% end %>
-
+<div class="container details-container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path%></li>
+    <li><%= link_to "Search", page_path(:search, :current_user => current_user)%></li>
+    <li class="active">Property results</li>
+  </ol>
+  <h2>More detailed results</h2>
+    <% if @detailed_results['editedFacts'] %>
+      <h3><%= @detailed_results['address']['street'] %></h3>
+      <h4><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> <%= link_to "Photos", @detailed_results['links']['photoGallery'] %></h4>
+      <div class="home-details">
+        <ul class="list-group">
+          <li class="list-group-item"><span class="home-details-label">Rent:</span> <%= number_to_currency(params[:rent].to_i) %></li>
+          <li class="list-group-item"><span class="home-details-label">Bedrooms: </span><%= @detailed_results['editedFacts']['bedrooms'] %></li>
+          <li class="list-group-item"><span class="home-details-label">Bathrooms: </span><%= @detailed_results['editedFacts']['bathrooms'] %></li>
+          <li class="list-group-item"><span class="home-details-label">Finished sq. ft.: </span><%= @detailed_results['editedFacts']['finishedSqFt'] %></li>
+          <li class="list-group-item"><span class="home-details-label">Age: </span><%= time_ago_in_words(Time.new(@detailed_results['editedFacts']['yearBuilt'].to_i)) %> old</li>
+          <li class="list-group-item"><span class="home-details-label">Parking: </span><%= @detailed_results['editedFacts']['parkingType'] %></li>
+        </ul>
+      </div>
+      <p class="realtor">The realtor says: </p>
+      <blockquote class="home-description"><%= @detailed_results['homeDescription'] %></blockquote>
+      <h4>
+      <button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= link_to "Save this address", user_candidates_path(current_user,
+              :zpid => @detailed_results['zpid'],
+              :street => @detailed_results['address']['street'],
+              :beds => @detailed_results['editedFacts']['bedrooms'],
+              :baths => @detailed_results['editedFacts']['bathrooms'],
+              :size => @detailed_results['editedFacts']['finishedSqFt'],
+              :total_rent => params[:rent],
+              :notes => "Realtor's notes: #{@detailed_results['homeDescription']}",
+            ), method: :post %></button>
+    </h4>
+    <% else %>
+      <p class="error-message txt-danger"><%= @detailed_results%></p>
+      <button class="btn btn-default"><%= link_to "Back to search", page_path(:search, :current_user => current_user) %></button>
+    <% end %>
+</div>
