@@ -1,0 +1,21 @@
+<div class="container details-container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path%></li>
+    <li><%= link_to "Saved addresses", user_candidates_path(current_user) %></li>
+    <li class="active"><%= @candidate.street %></li>
+  </ol>
+  <h2><%= @candidate.street %></h2>
+    <div class="home-details">
+      <ul class="list-group">
+        <li class="list-group-item"><span class="home-details-label">Rent:</span> <%= number_to_currency(@candidate.total_rent.to_i) %></li>
+        <li class="list-group-item"><span class="home-details-label">Bedrooms: </span><%= @candidate.beds %></li>
+        <li class="list-group-item"><span class="home-details-label">Bathrooms: </span><%= @candidate.baths %></li>
+        <li class="list-group-item"><span class="home-details-label">Finished sq. ft.: </span><%= @candidate.size %></li>
+        <li class="list-group-item"><span class="home-details-label">Parking: </span><%= @candidate.parking %></li>
+        <li class="list-group-item"><span class="home-details-label">Public transportation: </span><%= @candidate.public_transportation %></li>
+        <li class="list-group-item"><span class="home-details-label">Parking: </span><%= @candidate.bike_friendly %></li>
+      </ul>
+    </div>
+    <p class="realtor">Notes: </p>
+    <blockquote class="home-description"><%= @candidate.notes %></blockquote>
+</div>
