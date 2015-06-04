@@ -9,9 +9,9 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :size
       t.string :total_rent
       t.text :notes, default: ''
-      t.string :public_transportation, default: 'none'
-      t.string :bike_friendly, default: 'none'
-      t.string :parking, default: 'none'
+      t.string :public_transportation, default: '0'
+      t.string :bike_friendly, default: '0'
+      t.string :parking, default: '0'
       t.integer :score, default: 0
       t.timestamps
     end

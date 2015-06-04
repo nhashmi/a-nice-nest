@@ -8,8 +8,8 @@
             user_candidate_path(current_user, candidate) %>
         <span class='when-added'>added <%= time_ago_in_words(candidate.created_at) %> ago</span>
       </li>
-      <small class="delete-candidate"><%= link_to "Remove property",
-        user_candidate_path(current_user, candidate), method: :delete %></small>
+      <p class="candidate-options"><span class="glyphicon glyphicon-pencil"><%= link_to 'edit', edit_user_candidate_path(current_user, candidate) %></span>
+      <span class="glyphicon glyphicon-remove pull-right"><%= link_to 'remove', user_candidate_path(current_user, candidate), method: :delete %></span></p>
     <% end %>
   </ul>
   <h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>

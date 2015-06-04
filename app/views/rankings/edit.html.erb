@@ -9,7 +9,6 @@
       <h3><%= f.label :max_rent, "What is the most you're willing to pay each month?" %></h3>
       <%= f.number_field :max_rent, class: 'form-control' %>
     </div>
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :public_transportation, "Proximity to public transportation" %></h3>
       <% @ranking_options.each do |option| %>
         <div class="radio">
@@ -17,8 +16,6 @@
           <%= label_tag(:public_transportation, option) %>
         </div>
       <% end %>
-    <!-- </div> -->
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :bike_friendly, "Bike friendliness" %></h3>
         <% @ranking_options.each do |option| %>
           <div class="radio">
@@ -26,8 +23,6 @@
             <%= label_tag(:bike_friendly, option) %>
           </div>
         <% end %>
-    <!-- </div> -->
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :parking, "Easy parking" %></h3>
         <% @ranking_options.each do |option| %>
           <div class="radio">
@@ -35,8 +30,6 @@
             <%= label_tag(:parking, option) %>
           </div>
         <% end %>
-    <!-- </div> -->
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :own_baths, "Individual bathrooms for each person" %></h3>
         <% @ranking_options.each do |option| %>
           <div class="radio">
@@ -44,8 +37,6 @@
             <%= label_tag(:own_baths, option) %>
           </div>
         <% end %>
-    <!-- </div> -->
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :own_beds, "Individual bedrooms for each person" %></h3>
         <% @ranking_options.each do |option| %>
           <div class="radio">
@@ -53,8 +44,6 @@
             <%= label_tag(:own_beds, option) %>
           </div>
         <% end %>
-    <!-- </div> -->
-    <!-- <div class="form-field form-group"> -->
       <h3><%= f.label :size, "A lot of space" %></h3>
         <% @ranking_options.each do |option| %>
           <div class="radio">
@@ -62,7 +51,6 @@
             <%= label_tag(:size, option) %>
           </div>
         <% end %>
-    <!-- </div> -->
     <%= f.submit "Save rankings", class: 'btn btn-lg btn-success' %>
   <% end %>
 </div>

@@ -11,16 +11,21 @@ class CandidatesController < ApplicationController
   end
 
   def new
+    @candidate = current_user.candidates.new
   end
 
   def create
-    @candidate = current_user.candidates.new(
-      zpid: params[:zpid], street: params[:street], notes: params[:notes],
-      baths: params[:baths], beds: params[:beds], size: params[:size],
-      total_rent: params[:total_rent],
-      public_transportation: params[:public_transportation],
-      bike_friendly: params[:bike_friendly], parking: params[:parking]
-    )
+    if params[:zpid]
+      @candidate = current_user.candidates.new(
+        zpid: params[:zpid], street: params[:street], notes: params[:notes],
+        baths: params[:baths], beds: params[:beds], size: params[:size],
+        total_rent: params[:total_rent],
+        public_transportation: params[:public_transportation],
+        bike_friendly: params[:bike_friendly], parking: params[:parking]
+      )
+    else
+      @candidate = current_user.candidates.new(candidate_params)
+    end
     if @candidate.save
       redirect_to user_candidates_path(current_user)
     else

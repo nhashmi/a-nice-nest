@@ -107,29 +107,18 @@ class Candidate < ActiveRecord::Base
   end
 
   def quality(attribute)
-    if attribute == 'yes'
+    if attribute == 1
       return 5
     else
       return 1
     end
   end
 
-  # Calculate per-person-thresholds from current_user.rankings
-      # priority_score = fn(each person's rankings)
-      # default priority_score is 1
-      #
-    # Sort each candidate into best fit, good fits, and poor fits
-      # For each category:
-      # priority_score * fit && total_rent <= sum of max_rent
-      # if ranking is low priority, give 1 point
-      # if ranking is medium priority, give 3 points for candidate that fits
-      # if ranking is high priority, give 5 points for candidate that fits
-
-  # Return a hash:
-  # ranked_candidates: {
-  #  best_fit: #candidate,
-  #  good_fits: [#candidate, #candidate]
-  #  poor_fits: [#candidate, #candidate]
-  # }
-
+  def render_checkbox_score(attribute)
+    if attribute == "1"
+      return 'Yes'
+    else
+      return 'No'
+    end
+  end
 end

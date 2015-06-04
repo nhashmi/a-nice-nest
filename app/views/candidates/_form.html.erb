@@ -1,0 +1,45 @@
+<div class="container edit-form">
+  <%= form_for [current_user, @candidate] do |f| %>
+    <div class="form-field form-group">
+      <h3><%= f.label :zpid, "Zillow Property ID"%></h3>
+      <%= f.text_field :zpid, class: "form-control disabled"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :street, "Address"%></h3>
+      <%= f.text_field :street, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :notes, "Notes"%></h3>
+      <%= f.text_area :notes, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :baths, "Bathrooms"%></h3>
+      <%= f.text_field :baths, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :beds, "Bedrooms"%></h3>
+      <%= f.text_field :beds, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :size, "Size (sq. ft.)"%></h3>
+      <%= f.text_field :size, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :total_rent, "Total rent"%></h3>
+      <%= f.text_field :total_rent, class: "form-control"%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :public_transportation, "Close to public transportation?"%></h3>
+      <%= f.check_box :public_transportation%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :bike_friendly, "Bike friendly?"%></h3>
+      <%= f.check_box :bike_friendly%>
+    </div>
+    <div class="form-field form-group">
+      <h3><%= f.label :parking, "Has parking?"%></h3>
+      <%= f.check_box :parking%>
+    </div>
+    <%= f.submit "Save address", class: 'btn btn-lg btn-success' %>
+  <% end %>
+</div>

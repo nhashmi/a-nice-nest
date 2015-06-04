@@ -17,4 +17,5 @@
     </ul>
     <h3><%= link_to "Search for an address", page_path(:search, :current_user => current_user) %></h3>
     <h3><%= link_to "Your saved addresses", user_candidates_path(current_user) %></h3>
+    <h3><%= link_to "Add an address manually", new_user_candidate_path(current_user)%></h3>
 </div>
