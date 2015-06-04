@@ -1,14 +1,27 @@
-<h2>We've ranked your saved addresses</h2>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path%></li>
+    <li><%= link_to "Saved addresses", user_candidates_path(current_user) %></li>
+    <li class="active">Your apartment rankings</li>
+  </ol>
+  <h2>We've ranked your saved addresses</h2>
 
-<h3>Here is the best fit</h3>
-<%= link_to(@ranked_candidates[:best_fit].street, user_candidate_path(current_user, @ranked_candidates[:best_fit])) %>
+  <h3 class="text-success">We think this would be the best fit for you:</h3>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-success"><%= link_to(@ranked_candidates[:best_fit].street, user_candidate_path(current_user, @ranked_candidates[:best_fit])) %></li>
+  </ul>
 
-<h4>Here are some other good fits</h4>
-<% @ranked_candidates[:good_fits].each do |candidate| %>
-  <%= link_to(candidate.street, user_candidate_path(current_user, candidate)) %>
-<% end %>
+  <h4 class="text-info">Some other good choices:</h4>
+  <ul class="list-group">
+  <% @ranked_candidates[:good_fits].each do |candidate| %>
+    <li class="list-group-item list-group-item-info"><%= link_to(candidate.street, user_candidate_path(current_user, candidate)) %></li>
+  <% end %>
+  </ul>
 
-<h4>We don't think you'd like living in the following places</h4>
-<% @ranked_candidates[:poor_fits].each do |candidate| %>
-  <%= link_to(candidate.street, user_candidate_path(current_user, candidate)) %>
-<% end %>
+  <h4 class="text-danger">We don't think you'd like living in these homes:</h4>
+  <ul class="list-group">
+    <% @ranked_candidates[:poor_fits].each do |candidate| %>
+      <li class="list-group-item list-group-item-danger"><%= link_to(candidate.street, user_candidate_path(current_user, candidate)) %></li>
+    <% end %>
+  </ul>
+</div>

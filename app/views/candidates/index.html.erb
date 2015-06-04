@@ -12,6 +12,6 @@
       <span class="glyphicon glyphicon-remove pull-right"><%= link_to 'remove', user_candidate_path(current_user, candidate), method: :delete %></span></p>
     <% end %>
   </ul>
-  <h3><%= link_to "Your residents", user_rankings_path(current_user) %></h3>
   <button class="btn btn-lg btn-success"><%= link_to "Rank these addresses", rank_user_candidates_path(current_user) %></button>
+  <button class="btn btn-lg btn-default"><%= link_to "Your residents", user_rankings_path(current_user) %></button>
 </div>
