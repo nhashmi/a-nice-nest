@@ -166,3 +166,19 @@ $header-font-stack: "Montserrat", "Open Sans", "Helvetica Neue", cursive;
 .custom-address {
   padding-left: 1vw;
 }
+
+.sign-in-form {
+ font-size: 2em;
+}
+
+#remember-me {
+  font-size: 0.5em;
+}
+
+.btn-info a {
+  color: #fff;
+  &:hover,
+  &:visited {
+    color: #fff;
+  }
+}

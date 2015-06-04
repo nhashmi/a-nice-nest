@@ -1,26 +1,28 @@
-<div class="container">
+<div class="container sign-in-form">
   <h1>Sign in</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field input-group">
-      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'email' %>
+    <%= f.label :email, "Email" %>
+    <div class="field form-field input-group col-md-6">
+      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'user' %>
       <span class="input-group-addon" id="basic-addon1">@example.com</span>
     </div>
 
-    <div class="field input-group">
+    <%= f.label :password, "Password" %>
+    <div class="field form-field input-group col-md-6">
       <span class="input-group-addon" id="basic-addon2">password</span>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: '********' %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
+      <div class="field" id="remember-me">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: 'btn btn-success btn-lg' %>
     </div>
   <% end %>
 
