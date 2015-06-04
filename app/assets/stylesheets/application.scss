@@ -29,6 +29,7 @@ $jumbotron-bg: $blue;
 $jumbotron-color: #fff;
 $well-bg: $green;
 $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font-stack: 'Cherry Cream Soda', "Open Sans", "Helvetica Neue", cursive;
 
 .btn {
   margin-top: 10px;
@@ -39,13 +40,13 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 }
 
 .navbar {
-  font-family: 'Cherry Cream Soda', cursive;
+  font-family: $header-font-stack;
 }
 
 .container {
   h1,
   h2 {
-    font-family: 'Cherry Cream Soda', cursive;
+    font-family: $header-font-stack;
   }
 }
 
