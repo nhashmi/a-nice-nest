@@ -1,4 +1,8 @@
 <div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path%></li>
+    <li class="active">Search</li>
+  </ol>
   <h1>Search for an address</h1>
   <form method="post" action="/api/zillow/search">
     <div class="form-group">

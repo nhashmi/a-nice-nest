@@ -1,4 +1,8 @@
 <div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home", root_path%></li>
+    <li class="active">Saved addresses</li>
+  </ol>
 <h2>Here are the addresses you're interested in ranking.</h2>
   <ul class="candidates list-group">
     <% @candidates.each do |candidate| %>
