@@ -43,10 +43,10 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
 }
 
 .container {
-    h1,
-    h2 {
-      font-family: 'Cherry Cream Soda', cursive;
-    }
+  h1,
+  h2 {
+    font-family: 'Cherry Cream Soda', cursive;
+  }
 }
 
 .alert-info {
@@ -67,7 +67,6 @@ $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-s
   }
 
 }
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
