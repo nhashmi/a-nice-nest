@@ -21,6 +21,9 @@ module Api
         error_message = 'We\'re sorry, but the realtor responsible for this
           property does not wish to share data through the Zillow API'
         return error_message
+      elsif response['updatedPropertyDetails']['message']['code'] == '502'
+        error_message = "We're sorry, but the Zillow API does not return any
+        up-to-date data about this property."
       else
         cleaned_results = response['updatedPropertyDetails']['response']
         cleaned_results['rent'] = @search_params[:rent]
