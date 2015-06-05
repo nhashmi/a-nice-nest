@@ -127,7 +127,7 @@ class Candidate < ActiveRecord::Base
     ranked_candidates = {
       best_fit: best_fit,
       good_fits: user.candidates.select { |candidate| candidate.score > threshold && candidate != best_fit },
-      poor_fits: user.candidates.reject { |candidate| candidate.score > threshold }
+      poor_fits: user.candidates.reject { |candidate| candidate.score > threshold && candidate != best_fit }
     }
     ranked_candidates
   end
