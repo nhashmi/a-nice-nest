@@ -14,7 +14,9 @@
           <li class="list-group-item"><span class="home-details-label">Bedrooms: </span><%= @detailed_results['editedFacts']['bedrooms'] %></li>
           <li class="list-group-item"><span class="home-details-label">Bathrooms: </span><%= @detailed_results['editedFacts']['bathrooms'] %></li>
           <li class="list-group-item"><span class="home-details-label">Finished sq. ft.: </span><%= @detailed_results['editedFacts']['finishedSqFt'] %></li>
-          <li class="list-group-item"><span class="home-details-label">Age: </span><%= time_ago_in_words(Time.new(@detailed_results['editedFacts']['yearBuilt'].to_i)) %> old</li>
+          <% if @detailed_results['editedFacts']['yearBuilt'] %>
+            <li class="list-group-item"><span class="home-details-label">Age: </span><%= time_ago_in_words(Time.new(@detailed_results['editedFacts']['yearBuilt'].to_i)) %> old</li>
+          <% end %>
           <li class="list-group-item"><span class="home-details-label">Parking: </span><%= @detailed_results['editedFacts']['parkingType'] %></li>
         </ul>
       </div>
