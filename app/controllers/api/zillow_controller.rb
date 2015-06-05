@@ -8,7 +8,6 @@ module Api
         format.html { render :index }
         format.json { render json: @results }
       end
-      # render :json => ZillowSearcher.new(params).perform
     end
 
     def detailed_search
