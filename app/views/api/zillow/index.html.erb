@@ -1,20 +1,25 @@
 <div class="container">
-  <h2>Here's what we were able to turn up</h2>
-  <% @user = current_user %>
-  <ul class="search-results list-group">
-    <% @results.each do |result| %>
-      <li class="list-group-item">
-        <h3>Zillow Property ID: <%= result[:zpid] %></h3>
-        <span class="badge">Estimated monthly rent: <%= number_to_currency(result[:rent].to_i, precision: 0) %></span>
-        <span class="badge bed-badge">Bedrooms: <%= result[:beds] %></span>
-        <span class="badge bath-badge">Bathrooms: <%= result[:baths] %></span>
-        <p>
-        <button class="btn btn-info"><%= link_to "View on Zillow", result[:links]["homedetails"], class: "text-info" %></button>
-        <button class="btn btn-success"><%= link_to "More details", detailed_search_api_zillow_index_path(
-            :zpid => result[:zpid], :rent => result[:rent]), method: :post, class: "text-primary" %></button>
-        </p>
-      </li>
-    <% end %>
-    <a href="http://zillow.com" target="_blank"><img class="btn btn-default" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" /></a>
-  </ul>
+  <% if @results.is_a?(String) %>
+    <h3><%= @results %></h3>
+    <button class="btn btn-default btn-lg"><%= link_to "Try another search", page_path(:search, :current_user => current_user) %></button>
+  <% else %>
+    <h2>Here's what we were able to turn up</h2>
+    <% @user = current_user %>
+    <ul class="search-results list-group">
+      <% @results.each do |result| %>
+        <li class="list-group-item">
+          <h3>Zillow Property ID: <%= result[:zpid] %></h3>
+          <span class="badge">Estimated monthly rent: <%= number_to_currency(result[:rent].to_i, precision: 0) %></span>
+          <span class="badge bed-badge">Bedrooms: <%= result[:beds] %></span>
+          <span class="badge bath-badge">Bathrooms: <%= result[:baths] %></span>
+          <p>
+          <button class="btn btn-info"><%= link_to "View on Zillow", result[:links]["homedetails"], class: "text-info" %></button>
+          <button class="btn btn-success"><%= link_to "More details", detailed_search_api_zillow_index_path(
+              :zpid => result[:zpid], :rent => result[:rent]), method: :post, class: "text-primary" %></button>
+          </p>
+        </li>
+      <% end %>
+      <a href="http://zillow.com" target="_blank"><img class="btn btn-default" src="http://www.zillow.com/widgets/GetVersionedResource.htm?path=/static/logos/Zillowlogo_150x40_rounded.gif" width="150" height="40" alt="Zillow Real Estate Search" /></a>
+    </ul>
+  <% end %>
 </div>

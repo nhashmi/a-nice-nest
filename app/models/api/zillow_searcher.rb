@@ -19,6 +19,10 @@ module Api
     end
 
     def clean(response)
+      if response['searchresults']['code'] != 200
+        return 'Sorry, those search terms didn\'t yield anything. Please
+        try again.'
+      end
       results = response['searchresults']['response']['results']['result']
       cleaned_results = []
       # Handle cases where search returns multiple properties at the same address
