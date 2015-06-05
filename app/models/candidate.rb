@@ -126,9 +126,10 @@ class Candidate < ActiveRecord::Base
     best_fit = user.candidates.max_by(&:score)
     ranked_candidates = {
       best_fit: best_fit,
-      good_fits: user.candidates.select { |candidate| candidate.score > threshold && candidate != best_fit },
-      poor_fits: user.candidates.reject { |candidate| candidate.score > threshold && candidate != best_fit }
+      good_fits: user.candidates.select { |candidate| candidate.score >= threshold && candidate != best_fit },
+      poor_fits: user.candidates.select { |candidate| candidate.score < threshold && candidate != best_fit }
     }
+    binding.pry
     ranked_candidates
   end
 
